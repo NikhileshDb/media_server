@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Media Server
+{% endblock %}
+
+{% block content %}
+<!-- <h2>INDEX PAGE</h2>
+<p className="status">STATUS</p>
+<button class="start">START</button>.
+<button class="stop">STOP</button>.
+
+<form method='post' action="{% url 'index' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input name="video" type="file" placeholder="Upload video">
+    <button>Upload</button>
+</form> -->
+
+<section>
+    <div class="grid__container">
+
+
+
+        {% for video in videos %}
+        <a href="{% url 'single_video' video.id %}">
+            <div class="card pointer" style="width: 18rem;">
+                <img src="{{video.thumbnail.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">{{video.name}}</p>
+                </div>
+            </div>
+        </a>
+        {% empty %}
+        <h2 class="center capitalize">No Videos Found</h2>
+        {% endfor %}
+
+
+    </div>
+</section>
+{% endblock %}

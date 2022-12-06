@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+<p>API</p>
+{% endblock %}
+{% block content %}
+<div class="progress">
+    <div class="progress__indicator progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+        aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+        0%</div>
+</div>
+<div class="form__container">
+    <!-- <form method="post" action="{% url 'upload_new' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input name="video" placeholder="Choose Video" type="file">
+        <button>Submit</button>
+    </form> -->
+    <form class="mb-3 p-3">
+        {% csrf_token %}
+        <input id="video_input" name="video" class="form-control my-4" type="file">
+        <button id="submit_button" type="button" class="btn btn-primary btn-lg">SUBMIT VIDEO</button>
+    </form>
+
+</div>
+
+{% endblock %}
